@@ -444,13 +444,13 @@ namespace SSH
                             {
                                 WriteVerbose("Using key with no passphrase.");
                                 var sshkey = new PrivateKeyFile(File.OpenRead(@fullPath));
-                                connectionInfo = new PrivateKeyConnectionInfo(computer, _credential.GetNetworkCredential().UserName, sshkey);
+                                connectionInfo = new PrivateKeyConnectionInfo(computer, _port, _credential.GetNetworkCredential().UserName, sshkey);
                             }
                             else
                             {
                                 WriteVerbose("Using key with passphrase.");
                                 var sshkey = new PrivateKeyFile(File.OpenRead(@fullPath), _credential.GetNetworkCredential().Password);
-                                connectionInfo = new PrivateKeyConnectionInfo(computer, _credential.GetNetworkCredential().UserName, sshkey);
+                                connectionInfo = new PrivateKeyConnectionInfo(computer, _port, _credential.GetNetworkCredential().UserName, sshkey);
                             }
 
 
